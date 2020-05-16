@@ -4,11 +4,8 @@
  * and open the template in the editor.
  */
 package kangaroos;
+//ehllo
 
-/**
- *
- * @author hello
- */
 public class KangarooS {
 
     /**
