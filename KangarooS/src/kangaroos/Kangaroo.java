@@ -55,7 +55,7 @@ public class Kangaroo implements Comparable<Kangaroo> {
     }
 
     public void tick(){
-        //something will be in here
+        //something will be in here hello
     }
 
     @Override
