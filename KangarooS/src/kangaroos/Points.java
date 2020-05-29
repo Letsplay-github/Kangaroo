@@ -90,7 +90,7 @@ public class Points implements Comparable<Points>{
     
     public void tick() {
         
-        //still need work
+        //still need work will be replace inside Kangaroo.java
         LinkedList<Route> allowed = new LinkedList<Route>();
         Route choosen = null;
         Route currentRoute;
@@ -107,7 +107,7 @@ public class Points implements Comparable<Points>{
             currentKangaroo = kangaroo.atindex(p);
             if (currentKangaroo.getGender().equals("Male")) {
                 foodinpouch = currentKangaroo.getFood();
-                //kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+                //start sini kene tukar semua
                 for (int i = 0; i < route.length(); i++) {
                     currentRoute = route.atindex(i);
                     foodneeded = currentRoute.getWeight() + (foodinpouch / 2);//from new spot(not include offering)
