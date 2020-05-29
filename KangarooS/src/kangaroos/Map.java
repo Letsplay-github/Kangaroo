@@ -1,10 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package kangaroos;
-aidlhf adfcnwaejwojmfcoajaefweirjfco
+
+
 /**
  *
  * @author hello
@@ -16,14 +13,31 @@ public class Map{
         
     }
     
-    public Map(int numberofspot){
-        this.numberofpoints = numberofspot;
+    public Map(int numberofpoints){
+        this.numberofpoints = numberofpoints;
     }
     
     public int numberofspot(){
         return numberofpoints;
     }
     
+    public Points getPoint(int pointID){
+        for (int i = 0; i < points.length(); i++) {
+            if(points.atindex(i).getpointID()==pointID)
+                return points.atindex(i);
+        }
+        return null;//this will occur only if input pointID is not existed
+    }
+
+    public int getPointfood(int pointID){
+        for (int i = 0; i < points.length(); i++) {
+            if(points.atindex(i).getpointID()==pointID)
+                return points.atindex(i).getfood();
+        }
+        System.out.println("pointID is not exist, so you got -1");
+        return -1;
+    }
+
     public void tick(){
         for(int i =0;i<numberofpoints;i++){
             points.atindex(i).tick();

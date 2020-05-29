@@ -45,6 +45,10 @@ public class Points implements Comparable<Points>{
         this.route.addsortNode(newroute);
     }
     
+    public Route getRoute(int i){
+        return route.atindex(i);
+    }
+
     public int getmale(){
         int totalmale=0;
         for(int i = 0;i<JumpGroove.Kangaroos.length();i++)
@@ -103,6 +107,7 @@ public class Points implements Comparable<Points>{
             currentKangaroo = kangaroo.atindex(p);
             if (currentKangaroo.getGender().equals("Male")) {
                 foodinpouch = currentKangaroo.getFood();
+                //kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
                 for (int i = 0; i < route.length(); i++) {
                     currentRoute = route.atindex(i);
                     foodneeded = currentRoute.getWeight() + (foodinpouch / 2);//from new spot(not include offering)

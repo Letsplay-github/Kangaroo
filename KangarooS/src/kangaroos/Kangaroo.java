@@ -31,7 +31,7 @@ public class Kangaroo implements Comparable<Kangaroo> {
         return pointID;
     }
     
-    public int getFood(){
+    public int getfood(){
         return food;
     }
     
@@ -39,11 +39,26 @@ public class Kangaroo implements Comparable<Kangaroo> {
         this.food-=food;
     }
     
+    public void collectfood(){
+        if((this.food!=this.pouchcapacity)&&(getPoint().getfood()!=0)){
+            int tempfood = this.pouchcapacity-this.food;//amount of food needed to fill the pouch
+            if(getPoint().getfood()-tempfood<0){
+                this.food+=getPoint().getfood();
+            }else{
+                getPoint().minusfood(tempfood);
+                this.food+=tempfood;
+            }
+        }
+    }
     public void addFood(int food){
         this.food+=food;
     }
     public Character getGender() {
         return gender;
+    }
+    
+    public Points getPoint(){
+        return JumpGroove.Hafiz.getPoint(this.pointID);
     }
 
     @Override
@@ -55,7 +70,16 @@ public class Kangaroo implements Comparable<Kangaroo> {
     }
 
     public void tick(){
-        //something will be in here ejen ali
+        collectfood();
+        if(this.gender=='M'){
+
+            int tempnumroute = getPoint().getnumroute();//number of route from the point(point that current kangaroo is)
+            for (int j = 0; j < tempnumroute; j++) {
+                getPoint().getRoute(j);
+            }
+            
+        }
+
     }
 
     @Override
