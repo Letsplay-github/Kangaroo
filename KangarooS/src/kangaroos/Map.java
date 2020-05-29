@@ -38,9 +38,12 @@ public class Map{
         return -1;
     }
 
+    public int numColony(){
+        return Points.numberofcolony;
+    }
+
     public void tick(){
-        for(int i =0;i<numberofpoints;i++){
-            points.atindex(i).tick();
+        for (int i = 0; i < JumpGroove.Kangaroos.length(); i++) {
         }
     }
 }
