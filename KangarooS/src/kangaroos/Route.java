@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package kangaroos;
 
-/**
- *
- * @author hello
- */
 public class Route implements Comparable<Route>{
     private int weight;//obstacles level
     private Points link;
@@ -33,6 +24,11 @@ public class Route implements Comparable<Route>{
         return this.weight;
     }
 
+    @Override
+    public String toString() {
+        return "Route " + weight + " to point " +link.getpointID() + '}';
+    }
+    
     @Override
     public int compareTo(Route o) {
         if(this.weight == o.getWeight())

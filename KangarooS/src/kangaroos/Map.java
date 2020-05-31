@@ -44,6 +44,11 @@ public class Map{
 
     public void tick(){
         for (int i = 0; i < JumpGroove.Kangaroos.length(); i++) {
+            JumpGroove.Kangaroos.atindex(i).collectfood();
         }
+        for (int i = 0; i < JumpGroove.Kangaroos.length(); i++) {
+            JumpGroove.Kangaroos.atindex(i).tick();
+        }
+        
     }
 }

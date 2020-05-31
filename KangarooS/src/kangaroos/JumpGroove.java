@@ -20,12 +20,13 @@ public class JumpGroove {
         int m; // number of route connected
 
         // ask the user to input the number of points
-        n = 4;// sini patutnya scanner(user input)
+        System.out.println("Enter number of points");
+        n = s.nextInt();// sini patutnya scanner(user input)
         Hafiz = new Map(n);// set the number of points, tapi point masih belum ada
         System.out.println("enter information, kat sini kene baiki cara user input");
         System.out.println("Please enter information about points");
         for (int i = 0; i < n; i++) {
-            System.out.println("Point " + ( i+1 )+ ": ");
+            System.out.println("Point " + (i + 1) + ": ");
             a = s.nextInt();
             f = s.nextInt();
             l = s.nextInt();
@@ -68,62 +69,20 @@ public class JumpGroove {
 
         }
 
-        // for (int i = 0; i < Hafiz.numberofpoints; i++) {
-        //     int tempID = Hafiz.points.atindex(i).getpointID();
-        //     boolean available = false;
-        //     System.out.println(
-        //             "In point " + Hafiz.points.atindex(i).getpointID() + " Food: " + Hafiz.points.atindex(i).getfood());
-        //     for (int t = 0; t < Kangaroos.length(); t++) {
-        //         if (Kangaroos.atindex(i).getpointID() == tempID) {
-        //             System.out.println(Kangaroos.atindex(t).getGender() + " " + Kangaroos.atindex(t).getfood());
-        //             available = true;
-        //         }
-        //     }
-        //     if (available == false)
-        //         System.out.println("There is no Kangaroo (SADDDDDD)");
-        //     else
-        //         available = false;
-        // }
-
-        long lastTime = System.nanoTime();
-        double amountOfTicks = 60.0;
-        double ns = 1000000000 / amountOfTicks;
-        double delta = 0;
-        long timer = System.currentTimeMillis();
-        int frames = 0;
-        int hello = 0;
-        boolean running = false;
-        int start = 0;
-        System.out.println("press 1 to start");
-        start = s.nextInt();
-        if (start == 1)
-            running = true;
-        while (running) {
-            long now = System.nanoTime();
-            delta += (now - lastTime) / ns;
-            lastTime = now;
-            while (delta >= 1 && running) {
-                Hafiz.tick();
-
-                delta--;
-                System.out.println("one round");
-                hello = s.nextInt();
-                if (hello == 1)
-                    running = false;
-
-            }
-            if (running)
-                // render();
-                frames++;
-
-            if (System.currentTimeMillis() - timer > 1000) {
-                timer += 1000;
-                // System.out.println("FPS: "+ frames);
-                frames = 0;
-            }
-
+        Hafiz.tick();
+        for(int i = 0;i<JumpGroove.Kangaroos.length();i++){
+            int tempID = JumpGroove.Kangaroos.atindex(i).getpointID();
+            Character tempgender = JumpGroove.Kangaroos.atindex(i).getGender();
+            if(JumpGroove.Kangaroos.atindex(i).isincolony()==false)
+            System.out.println("Kangaroo "+tempID+" "+tempgender+" "+JumpGroove.Kangaroos.atindex(i).getfood());
+            
         }
-        System.out.println("Number of colony formed: "+Points.numberofcolony);
+        for (int i = 0;i<JumpGroove.Hafiz.points.length();i++){
+            System.out.println("Food at point "+JumpGroove.Hafiz.points.atindex(i).getpointID()+": "+JumpGroove.Hafiz.points.atindex(i).getfood());
+            
+        }
+
+        System.out.println("Number of colony formed: " + Points.numberofcolony);
     }
 
 }

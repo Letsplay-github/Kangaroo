@@ -6,7 +6,6 @@ public class ListNode<T> {
 
     private T data;
     private ListNode link;
-
     
     public ListNode(T data, ListNode link) {
         this.data = data;
